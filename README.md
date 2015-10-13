@@ -1,6 +1,8 @@
 # angular-unit-test
 We would show how to do unit testing for angular applications
 
+#### Running the unit tests
+- Please use the following command for running the unit tests. `karma start karma.config.js`
 
 #### Jasmine Functions
 - **describe** Groups a number of related tests (this is optional, but it helps organize test code)
@@ -47,5 +49,13 @@ programmatically so that the associated function executed on demand. See the
 - **$filter(name)** Creates an instance of the specified filter
 
 
-#### Running the unit tests
-- Please use the following command for running the unit tests. `karma start karma.config.js`
+The mock $httpBackend service provides an API that matches requests made through the $http service to
+canned results and to control when those canned results are sent.
+
+#### Methods Defined by the $httpBackend
+- **expect(method, url, data, headers)** Defines an expectation for a request that matches the method and URL (with optional data and header matches)
+- **flush() flush(count)** Sends back pending results (or the specified number of responses if the optional argument is used)
+- **resetExpectations()** Resets the set of expectations
+- **verifyNoOutstandingExpectation()**  Checks that all of the expected requests have been received
+- **respond(data) response(status, data, headers)** Defines a response for an expected request
+

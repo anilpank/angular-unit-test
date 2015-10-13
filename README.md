@@ -47,3 +47,5 @@ programmatically so that the associated function executed on demand. See the
 - **$filter(name)** Creates an instance of the specified filter
 
 
+#### Running the unit tests
+- Please use the following command for running the unit tests. `karma start karma.config.js`

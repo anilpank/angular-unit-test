@@ -9,6 +9,8 @@ describe("Controller Test", function () {
 	var mockScope = {};
 	var controller;
 	var backend;
+	var mockInterval;
+	var mockTimeout;
 
 	/**
 	 * Only the default AngularJS module is loaded by default, which means you have to call the module method for the
@@ -40,10 +42,13 @@ describe("Controller Test", function () {
 
 	/**
 	 * create a new scope and pass it to an instance of the controller in the
-	 * example application
+	 * example application. use the angular.mock.inject method to resolve dependencies. This provides access to the services required for the test
 	 */
-	beforeEach(angular.mock.inject(function ($controller, $rootScope, $http) {
+	beforeEach(angular.mock.inject(function ($controller, $rootScope, 
+			$http, $interval, $timeout) {
 		mockScope = $rootScope.$new();
+		mockInterval = $interval;
+		mockTimeout = $timeout;
 
 		/**
 		 * The arguments to the $controller service function are the name of the controller (defaultCtrl in this case) and an object whose
@@ -54,7 +59,9 @@ describe("Controller Test", function () {
 		 */
 		controller = $controller( "defaultCtrl", {
 			$scope: mockScope,
-			$http: $http
+			$http: $http,
+			$interval: mockInterval,
+			$timeout: mockTimeout
 		});
 		
 		/**
@@ -97,5 +104,18 @@ describe("Controller Test", function () {
 		expect(mockScope.products[1].name).toEqual("Bananas");
 		expect(mockScope.products[2].name).toEqual("Pears");
 	});
+	
+	it ("Limits interval to 10 updates", function () {
+		for (var i=0; i<11;i++) {
+			mockInterval.flush (5000);
+		}
+		expect (mockScope.intervalCounter).toEqual(10);
+	});
+	
+	it ("Increments timer counter", function () {
+		mockTimeout.flush(5000);
+		expect (mockScope.timerCounter).toEqual (1);
+	});	
+	
 
 });

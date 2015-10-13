@@ -65,3 +65,8 @@ canned results and to control when those canned results are sent.
 3. Check that all of the expected requests were made.
 4. Evaluate the results.
 
+
+#### Methods defined by the Mock $timeout and $interval services:
+- **$timeout->flush(millis)** Advances the timer by the specified number of milliseconds
+- **$timeout->verifyNoPendingTasks()** Checks to see whether there are callbacks that have yet to be invoked
+- **$interval->flush(millis)** Advances the timer by the specified number of milliseconds 	

@@ -57,5 +57,11 @@ canned results and to control when those canned results are sent.
 - **flush() flush(count)** Sends back pending results (or the specified number of responses if the optional argument is used)
 - **resetExpectations()** Resets the set of expectations
 - **verifyNoOutstandingExpectation()**  Checks that all of the expected requests have been received
-- **respond(data) response(status, data, headers)** Defines a response for an expected request
+- **respond(data) response(status, data, headers)** Defines a response for an expected request.
+
+#### Process for using the mock $httpBackend service:
+1. Define the requests that you expect to get and the responses for them.
+2. Send the responses.
+3. Check that all of the expected requests were made.
+4. Evaluate the results.
 

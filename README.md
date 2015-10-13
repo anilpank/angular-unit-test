@@ -20,3 +20,17 @@ We would show how to do unit testing for angular applications
 - **expect(x).toBeFalsy()** Asserts that x is false or evaluates to false
 - **expect(x).toContain(y)** Asserts that x is a string that contains y
 - **expect(x).toBeGreaterThan(y)** Asserts that x is greater than y
+
+
+#### Mock Objects Contained in the ngMocks Module
+- **angular.mock** Used to create mock modules and resolve dependencies.
+- **$exceptionHandler** A mock implementation of the $exceptionHandler service that rethrows the exceptions
+it receives.
+- **$interval** A mock implementation of the $interval service that allows time to be moved forward to
+trigger scheduled functions on demand. See the “Mocking Periods of Time” section.
+- **$log** A mock implementation of the $log service that exposes the messages it receives through a
+set of properties, one for each of the methods defined by the real service. See the
+“Testing Logging” section.
+- **$timeout** A mock implementation of the $timeout service that allows the timer to be expired
+programmatically so that the associated function executed on demand. See the
+“Mocking Periods of Time” section.

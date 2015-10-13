@@ -77,3 +77,4 @@ is added to the real service method names: log.logs, debug.logs, warn.logs, and 
 #### Methods Defined by the Mock $log Service
 - **assertEmpty()** Throws an exception if any logging messages have been written
 - **reset()** Clears the stored messages.
+

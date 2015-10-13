@@ -11,6 +11,7 @@ describe("Controller Test", function () {
 	var backend;
 	var mockInterval;
 	var mockTimeout;
+	var mockLog;
 
 	/**
 	 * Only the default AngularJS module is loaded by default, which means you have to call the module method for the
@@ -24,7 +25,7 @@ describe("Controller Test", function () {
 	 */
 	beforeEach(angular.mock.inject(function ($httpBackend) {
 		backend = $httpBackend;
-		
+
 		/**
 		 * Expect method defined by the mock $httpBackend service is entirely unrelated to the one 
 		 * defined that Jasmine uses to evaluate test results.
@@ -45,10 +46,11 @@ describe("Controller Test", function () {
 	 * example application. use the angular.mock.inject method to resolve dependencies. This provides access to the services required for the test
 	 */
 	beforeEach(angular.mock.inject(function ($controller, $rootScope, 
-			$http, $interval, $timeout) {
+			$http, $interval, $timeout, $log) {
 		mockScope = $rootScope.$new();
 		mockInterval = $interval;
 		mockTimeout = $timeout;
+		mockLog = $log;
 
 		/**
 		 * The arguments to the $controller service function are the name of the controller (defaultCtrl in this case) and an object whose
@@ -63,7 +65,7 @@ describe("Controller Test", function () {
 			$interval: mockInterval,
 			$timeout: mockTimeout
 		});
-		
+
 		/**
 		 * Sending the responses
 		 * The mock $httpBackend service won’t send its canned responses until the flush method is called.
@@ -83,7 +85,7 @@ describe("Controller Test", function () {
 		mockScope.incrementCounter();
 		expect(mockScope.counter).toEqual(1);
 	});
-	
+
 	/**
 	 * Checking That the Expected Requests Were Received. The $httpBackend service expects to receive one HTTP request for each use of the expect method
 	 * Check to see that all of my expectations have been met by calling the verifyNoOutstandingExpectation method within a Jasmine it function.
@@ -93,29 +95,33 @@ describe("Controller Test", function () {
 	it ("makes an ajax request", function () {
 		backend.verifyNoOutstandingExpectation();		
 	});
-	
+
 	it ("Processes the data", function () {
 		expect (mockScope.products).toBeDefined();
 		expect (mockScope.products.length).toEqual(3);
 	});
-	
+
 	it ("Preserves the data order", function () {
 		expect(mockScope.products[0].name).toEqual("Apples");
 		expect(mockScope.products[1].name).toEqual("Bananas");
 		expect(mockScope.products[2].name).toEqual("Pears");
 	});
-	
+
 	it ("Limits interval to 10 updates", function () {
 		for (var i=0; i<11;i++) {
 			mockInterval.flush (5000);
 		}
 		expect (mockScope.intervalCounter).toEqual(10);
 	});
-	
+
 	it ("Increments timer counter", function () {
 		mockTimeout.flush(5000);
 		expect (mockScope.timerCounter).toEqual (1);
 	});	
-	
+
+	it("Writes log messages", function () {
+		expect(mockLog.log.logs.length).toEqual(1);
+	});
+
 
 });

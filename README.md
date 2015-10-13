@@ -70,3 +70,10 @@ canned results and to control when those canned results are sent.
 - **$timeout->flush(millis)** Advances the timer by the specified number of milliseconds
 - **$timeout->verifyNoPendingTasks()** Checks to see whether there are callbacks that have yet to be invoked
 - **$interval->flush(millis)** Advances the timer by the specified number of milliseconds 	
+
+The mock $log service keeps track of the log messages it receives and presents them through a logs property that
+is added to the real service method names: log.logs, debug.logs, warn.logs, and so on.
+
+#### Methods Defined by the Mock $log Service
+- **assertEmpty()** Throws an exception if any logging messages have been written
+- **reset()** Clears the stored messages.

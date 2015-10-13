@@ -41,4 +41,9 @@ programmatically so that the associated function executed on demand. See the
 - **inject(fn)** Resolves dependencies and injects them into a function.
 - **dump(object)** Serializes an AngularJS object.
 
+#### Additional Methods and Services for Unit Testing
+- **$rootScope.new()** Creates a new scope
+- **$controller(name)** Creates an instance of the specified controller
+- **$filter(name)** Creates an instance of the specified filter
+
 

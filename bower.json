@@ -1,0 +1,29 @@
+{
+  "name": "angular-unit-test",
+  "version": "1.0.0",
+  "homepage": "https://github.com/anilpank/angular-unit-test",
+  "authors": [
+    "anil.iitk@gmail.com"
+  ],
+  "description": "Writing unit tests for angular applications",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "angular",
+    "jasmine",
+    "unit-testing"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-mocks": "~1.4.7",
+    "bootstrap": "~3.3.5"
+  }
+}

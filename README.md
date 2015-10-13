@@ -78,3 +78,12 @@ is added to the real service method names: log.logs, debug.logs, warn.logs, and 
 - **assertEmpty()** Throws an exception if any logging messages have been written
 - **reset()** Clears the stored messages.
 
+#### Examples of various tests
+-  [Sample application with controller, directive, filter and service](https://github.com/anilpank/angular-unit-test/blob/master/app/js/app.js)
+-  [Simple Jasmine test](https://github.com/anilpank/angular-unit-test/blob/master/tests/firstTest.js)
+-  [Testing an Angular Controller](https://github.com/anilpank/angular-unit-test/blob/master/tests/controllerTest.js)
+-  [Testing an Angular Directive](https://github.com/anilpank/angular-unit-test/blob/master/tests/directiveTest.js)
+-  [Testing an Angular Filter](https://github.com/anilpank/angular-unit-test/blob/master/tests/filterTest.js)
+-  [Testing an Angular Service](https://github.com/anilpank/angular-unit-test/blob/master/tests/serviceTest.js)
+
+

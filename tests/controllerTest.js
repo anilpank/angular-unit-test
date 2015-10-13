@@ -22,6 +22,13 @@ describe("Controller Test", function () {
 	 */
 	beforeEach(angular.mock.inject(function ($httpBackend) {
 		backend = $httpBackend;
+		
+		/**
+		 * Expect method defined by the mock $httpBackend service is entirely unrelated to the one 
+		 * defined that Jasmine uses to evaluate test results.
+		 *  define a request that you expect the component being tested to make.
+		 *  The required arguments are the HTTP method and the URL that will be requested
+		 */
 		backend.expect("GET", "productData.json").respond(
 				[
 				 { "name": "Apples", "category": "Fruit", "price": 1.20 },
@@ -50,6 +57,10 @@ describe("Controller Test", function () {
 			$http: $http
 		});
 		
+		/**
+		 * Sending the responses
+		 * The mock $httpBackend service won’t send its canned responses until the flush method is called.
+		 */
 		backend.flush();
 	}));
 
@@ -66,6 +77,12 @@ describe("Controller Test", function () {
 		expect(mockScope.counter).toEqual(1);
 	});
 	
+	/**
+	 * Checking That the Expected Requests Were Received. The $httpBackend service expects to receive one HTTP request for each use of the expect method
+	 * Check to see that all of my expectations have been met by calling the verifyNoOutstandingExpectation method within a Jasmine it function.
+	 * 
+	 * The verifyNoOutstandingExpectation method will throw an exception if not all of the expected requests have been received; for this reason, you don’t need to use the Jasmine expect method
+	 */	
 	it ("makes an ajax request", function () {
 		backend.verifyNoOutstandingExpectation();		
 	});

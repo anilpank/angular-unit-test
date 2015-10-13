@@ -34,3 +34,11 @@ set of properties, one for each of the methods defined by the real service. See 
 - **$timeout** A mock implementation of the $timeout service that allows the timer to be expired
 programmatically so that the associated function executed on demand. See the
 “Mocking Periods of Time” section.
+
+
+#### Methods defined by Angular.Mock object
+- **module(name)** Loads the specified module. See the "Arranging the Test" section.
+- **inject(fn)** Resolves dependencies and injects them into a function.
+- **dump(object)** Serializes an AngularJS object.
+
+

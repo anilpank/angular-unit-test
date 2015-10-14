@@ -86,4 +86,6 @@ is added to the real service method names: log.logs, debug.logs, warn.logs, and 
 -  [Testing an Angular Filter](https://github.com/anilpank/angular-unit-test/blob/master/tests/filterTest.js)
 -  [Testing an Angular Service](https://github.com/anilpank/angular-unit-test/blob/master/tests/serviceTest.js)
 
-
+#### Contributing
+- Easiest contribution is to give this project a star (if you like it).
+- Please read more here at [Contributing Guidelines](https://github.com/anilpank/angular-unit-test/blob/master/CONTRIBUTING.md).

@@ -29,13 +29,13 @@ We would show how to do unit testing for angular applications
 - **$exceptionHandler** A mock implementation of the $exceptionHandler service that rethrows the exceptions
 it receives.
 - **$interval** A mock implementation of the $interval service that allows time to be moved forward to
-trigger scheduled functions on demand. See the ìMocking Periods of Timeî section.
+trigger scheduled functions on demand. See the ‚ÄúMocking Periods of Time‚Äù section.
 - **$log** A mock implementation of the $log service that exposes the messages it receives through a
 set of properties, one for each of the methods defined by the real service. See the
-ìTesting Loggingî section.
+‚ÄúTesting Logging‚Äù section.
 - **$timeout** A mock implementation of the $timeout service that allows the timer to be expired
 programmatically so that the associated function executed on demand. See the
-ìMocking Periods of Timeî section.
+‚ÄúMocking Periods of Time‚Äù section.
 
 
 #### Methods defined by Angular.Mock object
@@ -89,3 +89,7 @@ is added to the real service method names: log.logs, debug.logs, warn.logs, and 
 #### Contributing
 - Easiest contribution is to give this project a star (if you like it).
 - Please read more here at [Contributing Guidelines](https://github.com/anilpank/angular-unit-test/blob/master/CONTRIBUTING.md).
+
+# [Bespoke Solutions](http://www.ojblabs.com)
+Brought to you by [OjbLabs](http://www.ojblabs.com)
+
